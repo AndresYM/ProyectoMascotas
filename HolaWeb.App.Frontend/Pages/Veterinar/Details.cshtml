@@ -1,0 +1,15 @@
+@page
+@model HolaWeb.App.Frontend.Pages.DetailsModel2
+@{
+}
+<h2>@Model.Veterinario.Nombre</h2>
+<div>
+    Id: @Model.Veterinario.Id
+</div>
+<div>
+    Ingles: @Model.Veterinario.Apellidos
+</div>
+<div>
+    Italiano: @Model.Veterinario.TarjetaProfesional
+</div>
+<a asp-page="./List" class="btn-default">Lista de Veterinario </a>

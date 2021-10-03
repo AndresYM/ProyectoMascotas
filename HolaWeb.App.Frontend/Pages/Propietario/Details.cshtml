@@ -1,0 +1,15 @@
+@page
+@model HolaWeb.App.Frontend.Pages.DetailsModel1
+@{
+}
+<h2>@Model.Propietar.Nombre</h2>
+<div>
+    Id: @Model.Propietar.Id
+</div>
+<div>
+    Ingles: @Model.Propietar.Apellidos
+</div>
+<div>
+    Italiano: @Model.Propietar.Identificacion
+</div>
+<a asp-page="./List" class="btn-default">Lista de Propietarios </a>

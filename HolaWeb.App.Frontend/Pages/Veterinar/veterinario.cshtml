@@ -1,0 +1,34 @@
+﻿@page
+@model HospiEnCasa.App.Fronted.Pages.VeterinarioModel
+@{
+}
+<h1>veterinarios</h1>
+<table class="table">
+    @foreach (var veterinario in Model.Veterinario)
+    {
+        <tr>
+            <td>@veterinario.Id</td>
+            <td>@veterinario.Nombre</td>
+            <td>@veterinario.Apellidos</td>
+            <td>@veterinario.NumeroTelefono</td>
+            <td>@veterinario.TarjetaProfesional</td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Details" asp-route-VeterinarioId="@veterinario.Id">
+                    <i class="fas fa-info-circle fa-lg"></i Detalle veterinario</a>
+            </td>
+        </tr>
+    }
+</table>  
+    <form action="">
+        <label for="nombre">Nombres</label><br>
+        <input type="text" id="nombre"><br>
+        <label for="Apellidos">Apellidos</label><br>
+        <input type="text" id="Apellido"><br>
+        <label for="Celular">Celular</label><br>
+        <input type="number" id="Celular"><br>
+        <label for="Tarjeta profesional">Tarjeta profesional</label><br>
+        <input type="number" id="Tarjeta profesional"><br><br>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Resetear formlario">
+    </form>
+</html>

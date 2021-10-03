@@ -1,0 +1,54 @@
+﻿@page
+@model HospiEnCasa.App.Fronted.Pages.visitaModel
+@{
+}
+<h1>Propietarios</h1>
+<table class="table">
+    @foreach (var visita in Model.Visita)
+    {
+        <tr>
+            <td>@visita.Id</td>
+            <td>@visita.IdMascota</td>
+            <td>@visita.IdVeterinario</td>
+            <td>@visita.Temperatura</td>
+            <td>@visita.peso</td>
+            <td>@visita.FrecuenciaRes</td>
+            <td>@visita.FrecuenciaCar</td>
+            <td>@visita.EstadoAnimo</td>
+            <td>@visita.Fecha</td>
+            <td>@visita.Recomendaciones</td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Details" asp-route-VisitaId="@visita.Id">
+                    <i class="fas fa-info-circle fa-lg"></i Detalle Visita</a>
+            </td>
+        </tr>
+    }
+</table>
+<form action="">
+    <label for="Mascota">Mascota</label><br>
+    <input type="text" id="Mascota"><br>
+    <label for="Veterinario">Veterinario</label><br>
+    <input type="text" id="Veterinario"><br>
+    <label for="Temperatura">Temperatura</label><br>
+    <input type="number" id="Temperatura"><br>
+    <label for="frecuencia respiratoria">Frecuencia respiratoria</label><br>
+    <input type="number" id="frecuencia respiratoria"><br>
+    <label for="frecuencia cardiaca">Frecuencia cardiaca</label><br>
+    <input type="number" id="frecuencia cardiaca"><br>
+    <label for="estado de animo">Estado de animo</label><br>
+    <input type="text" id="estado de animo"><br>
+    <label for="fecha">fecha</label><br>
+    <input type="date" id="fecha"><br>
+    <label for="Peso">Peso</label><br>
+    <input type="number" id="Peso"><br>
+    <label for="Recomendaciones">Recomendaciones</label><br>
+    <input type="text" id="Recomendaciones"><br>
+    <br>
+
+
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Resetear formlario">
+
+    </p>
+
+</form>
