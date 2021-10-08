@@ -2,7 +2,15 @@
 @model HospiEnCasa.App.Fronted.Pages.VeterinarioModel
 @{
 }
-<h1>veterinarios</h1>
+<h1>Veterinarios</h1>
+<form method="get">
+    <div class="form-group">
+
+        <p>
+            Veterinario: <input type="text" name="filtroBusqueda" asp-for="FiltroBusqueda" />
+            <input type="submit" value="Filtrar" />
+        </p>
+</form>
 <table class="table">
     @foreach (var veterinario in Model.Veterinario)
     {
@@ -16,19 +24,12 @@
                 <a class="btn btn-primary table-btn" asp-page="./Details" asp-route-VeterinarioId="@veterinario.Id">
                     <i class="fas fa-info-circle fa-lg"></i Detalle veterinario</a>
             </td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Edit" asp-route-VeterinarioId="@veterinario.Id">
+                    <i class="fas fa-address-book fa-lg" aria-hidden="true"></i>
+                </a>
+            </td>
         </tr>
     }
 </table>  
-    <form action="">
-        <label for="nombre">Nombres</label><br>
-        <input type="text" id="nombre"><br>
-        <label for="Apellidos">Apellidos</label><br>
-        <input type="text" id="Apellido"><br>
-        <label for="Celular">Celular</label><br>
-        <input type="number" id="Celular"><br>
-        <label for="Tarjeta profesional">Tarjeta profesional</label><br>
-        <input type="number" id="Tarjeta profesional"><br><br>
-        <input type="submit" value="Enviar">
-        <input type="reset" value="Resetear formlario">
-    </form>
-</html>
+<a asp-page=".\Edit" class="btn btn-primary">Adicionar veterinario</a>

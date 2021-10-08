@@ -17,6 +17,14 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
                 new Visitas{Id=3,IdMascota=2,IdVeterinario=2,Temperatura=28,peso=8,FrecuenciaRes=89,FrecuenciaCar=123,EstadoAnimo="Triste",Fecha="121212",Recomendaciones="121212"}
             };
         }
+
+        public Visitas Add(Visitas nuevoVisita)
+        {
+            nuevoVisita.Id=visitas.Max(r => r.Id) +1; 
+            visitas.Add(nuevoVisita);
+            return nuevoVisita;
+        }
+
         public IEnumerable<Visitas> GetAll()
         {
             return visitas;
@@ -41,6 +49,25 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
         public Visitas GetVisitaPorId(int visitaID)
         {
             return visitas.SingleOrDefault(p => p.Id==visitaID);
+        }
+
+        public Visitas Update(Visitas visitaActualizado)
+        {
+            var visita= visitas.SingleOrDefault(r => r.Id==visitaActualizado.Id);
+            if (visita!=null)
+            {
+                visita.IdMascota = visitaActualizado.IdMascota;
+                visita.IdVeterinario=visitaActualizado.IdVeterinario;
+                visita.Temperatura=visitaActualizado.Temperatura;
+                visita.peso=visitaActualizado.peso;
+                visita.FrecuenciaRes=visitaActualizado.FrecuenciaRes;
+                visita.FrecuenciaCar=visitaActualizado.FrecuenciaCar;
+                visita.EstadoAnimo=visitaActualizado.EstadoAnimo;
+                visita.Fecha=visitaActualizado.Fecha;
+                visita.Recomendaciones=visitaActualizado.Recomendaciones;
+    
+            }
+            return visita;
         }
     }
 }

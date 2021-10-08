@@ -9,7 +9,7 @@ namespace HolaWeb.App.Dominio
         public string Nombre { get; set; }
         [Required, StringLength(50)]
         public string Apellidos { get; set; }
-        [Required, StringLength(50)]
+        [Required, StringLength(11)]
         public string NumeroTelefono { get; set; }
 
     }

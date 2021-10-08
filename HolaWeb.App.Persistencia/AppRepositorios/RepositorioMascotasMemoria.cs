@@ -17,6 +17,14 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
                 new Mascot{Id=3,Nombre="as212",Edad=5,Raza="12sd212"}
             };
         }
+
+        public Mascot Add(Mascot nuevoMascota)
+        {
+            nuevoMascota.Id=mascotas.Max(r => r.Id) +1; 
+            mascotas.Add(nuevoMascota);
+            return nuevoMascota;
+        }
+
         public IEnumerable<Mascot> GetAll()
         {
             return mascotas;
@@ -41,6 +49,19 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
         public Mascot GetMascotaPorId(int mascotaID)
         {
             return mascotas.SingleOrDefault(p => p.Id==mascotaID);
+        }
+
+        public Mascot Update(Mascot mascotaActualizado)
+        {
+            var mascota= mascotas.SingleOrDefault(r => r.Id==mascotaActualizado.Id);
+            if (mascota!=null)
+            {
+                mascota.Nombre = mascotaActualizado.Nombre;
+                mascota.Edad=mascotaActualizado.Edad;
+                mascota.Raza=mascotaActualizado.Raza;
+    
+            }
+            return mascota;
         }
     }
 }

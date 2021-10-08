@@ -4,12 +4,33 @@
 }
 <h2>@Model.Visita.Id</h2>
 <div>
-    Id: @Model.Visita.IdMascota
+    Id: @Model.Visita.Id
 </div>
 <div>
-    Ingles: @Model.Visita.IdVeterinario
+    Id Mascota: @Model.Visita.IdMascota
 </div>
 <div>
-    Italiano: @Model.Visita.Fecha
+    Id Veterinario: @Model.Visita.IdVeterinario
 </div>
-<a asp-page="./List" class="btn-default">Lista de Visita </a>
+<div>
+    Temperatura: @Model.Visita.Temperatura
+</div>
+<div>
+    Peso: @Model.Visita.peso
+</div>
+<div>
+    Frecuencia Respiratoria: @Model.Visita.FrecuenciaRes
+</div>
+<div>
+    Frecuencia Cardiaca @Model.Visita.FrecuenciaCar
+</div>
+<div>
+    Estado de Animo: @Model.Visita.EstadoAnimo
+</div>
+<div>
+    Fecha: @Model.Visita.Fecha
+</div>
+<div>
+    Recomendaciones: @Model.Visita.Recomendaciones
+</div>
+<a asp-page="./visita" class="btn-default">Lista de Visita </a>

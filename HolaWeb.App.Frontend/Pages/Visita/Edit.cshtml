@@ -1,0 +1,57 @@
+@page
+@model HolaWeb.App.Frontend.Pages.EditModel4
+@{
+}
+<h2>Edición del Visita :@Model.Visita.Id</h2>
+<form method="post">
+     <input type="hidden" asp-for="Visita.Id"/>
+    <div class="form-group">
+        <label asp-for="Visita.IdMascota"></label>
+        <input asp-for="Visita.IdMascota" class="form-control">
+        <span class="text-danger" asp-validation-for="Visita.IdMascota"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Visita.IdVeterinario"></label>
+        <input asp-for="Visita.IdVeterinario" class="form-control">
+        <span class="text-danger" asp-validation-for="Visita.IdVeterinario"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Visita.Temperatura"></label>
+        <input type="number" asp-for="Visita.Temperatura" class="form-control">
+        <span class="text-danger" asp-validation-for="Visita.Temperatura"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Visita.peso"></label>
+        <input type="number" asp-for="Visita.peso" class="form-control">
+        <span class="text-danger" asp-validation-for="Visita.peso"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Visita.FrecuenciaRes"></label>
+        <input type="number" asp-for="Visita.FrecuenciaRes" class="form-control">
+        <span class="text-danger" asp-validation-for="Visita.FrecuenciaRes"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Visita.FrecuenciaCar"></label>
+        <input type="number" asp-for="Visita.FrecuenciaCar" class="form-control">
+        <span class="text-danger" asp-validation-for="Visita.FrecuenciaCar"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Visita.EstadoAnimo"></label>
+        <input asp-for="Visita.EstadoAnimo" class="form-control">
+        <span class="text-danger" asp-validation-for="Visita.EstadoAnimo"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Visita.Fecha"></label>
+        <input type="date" asp-for="Visita.Fecha" class="form-control">
+        <span class="text-danger" asp-validation-for="Visita.Fecha"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Visita.Recomendaciones"></label>
+        <input asp-for="Visita.Recomendaciones" class="form-control">
+        <span class="text-danger" asp-validation-for="Visita.Recomendaciones"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Grabar</button>
+</form>
+<a asp-page="./visita" class="btn-default">Lista de Visitas </a>

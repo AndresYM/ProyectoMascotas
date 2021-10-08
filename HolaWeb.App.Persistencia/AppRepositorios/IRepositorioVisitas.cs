@@ -8,5 +8,7 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
         IEnumerable<Visitas> GetAll();
         IEnumerable<Visitas> GetVisitaPorFiltro(string filtro);
         Visitas GetVisitaPorId(int visitaID);
+        Visitas Update(Visitas visitaActualizado);
+        Visitas Add(Visitas nuevoVisita);
     }
 }

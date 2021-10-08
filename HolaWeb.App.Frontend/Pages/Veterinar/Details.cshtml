@@ -2,14 +2,19 @@
 @model HolaWeb.App.Frontend.Pages.DetailsModel2
 @{
 }
-<h2>@Model.Veterinario.Nombre</h2>
 <div>
     Id: @Model.Veterinario.Id
 </div>
 <div>
-    Ingles: @Model.Veterinario.Apellidos
+    Nombres: @Model.Veterinario.Nombre
 </div>
 <div>
-    Italiano: @Model.Veterinario.TarjetaProfesional
+    Apellidos: @Model.Veterinario.Apellidos
 </div>
-<a asp-page="./List" class="btn-default">Lista de Veterinario </a>
+<div>
+    Numero de Telefono: @Model.Veterinario.NumeroTelefono
+</div>
+<div>
+    Tarjeta Profesional: @Model.Veterinario.TarjetaProfesional
+</div>
+<a asp-page="./veterinario" class="btn-default">Lista de Veterinario </a>

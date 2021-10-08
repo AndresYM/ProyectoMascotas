@@ -8,5 +8,7 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
         IEnumerable<Mascot> GetAll();
         IEnumerable<Mascot> GetMascotaPorFiltro(string filtro);
         Mascot GetMascotaPorId(int mascotaID);
+        Mascot Update(Mascot mascotaActualizado);
+        Mascot Add(Mascot nuevoMascota);
     }
 }

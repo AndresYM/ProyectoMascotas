@@ -17,6 +17,14 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
                 new Veterinario{Id=3,Nombre="as212",Apellidos="asdda",NumeroTelefono="12sd212",TarjetaProfesional=12133212}
             };
         }
+
+        public Veterinario Add(Veterinario nuevoVeterinario)
+        {
+            nuevoVeterinario.Id=veterinarios.Max(r => r.Id) +1; 
+            veterinarios.Add(nuevoVeterinario);
+            return nuevoVeterinario;
+        }
+
         public IEnumerable<Veterinario> GetAll()
         {
             return veterinarios;
@@ -41,6 +49,20 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
         public Veterinario GetVeterinarioPorId(int veterinarioID)
         {
             return veterinarios.SingleOrDefault(p => p.Id==veterinarioID);
+        }
+
+        public Veterinario Update(Veterinario veterinarioActualizado)
+        {
+            var veterinario= veterinarios.SingleOrDefault(r => r.Id==veterinarioActualizado.Id);
+            if (veterinario!=null)
+            {
+                veterinario.Nombre = veterinarioActualizado.Nombre;
+                veterinario.Apellidos=veterinarioActualizado.Apellidos;
+                veterinario.NumeroTelefono=veterinarioActualizado.NumeroTelefono;
+                veterinario.TarjetaProfesional=veterinarioActualizado.TarjetaProfesional;
+    
+            }
+            return veterinario;
         }
     }
 }

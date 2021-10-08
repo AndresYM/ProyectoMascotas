@@ -14,19 +14,18 @@ namespace HospiEnCasa.App.Fronted.Pages
         private readonly IRepositorioVeterinarios repositorioVeterinario;
         public IEnumerable<Veterinario> Veterinario { get; set; }
 
-        //[BindProperty(SupportsGet =true)]
-        //public string FiltroBusqueda { get; set; }
+        [BindProperty(SupportsGet =true)]
+        public string FiltroBusqueda { get; set; }
 
 
         public VeterinarioModel(IRepositorioVeterinarios repositorioVeterinario)
         {
             this.repositorioVeterinario = repositorioVeterinario;
         }
-        public void OnGet()
+        public void OnGet(string filtroBusqueda)
         {
-            //FiltroBusqueda=filtroBusqueda;
-            Veterinario = repositorioVeterinario.GetAll();
-            //GetSaludosPorFiltro(filtroBusqueda);
+            FiltroBusqueda=filtroBusqueda;
+            Veterinario = repositorioVeterinario.GetVeterinarioPorFiltro(filtroBusqueda);
         }
     }
 }

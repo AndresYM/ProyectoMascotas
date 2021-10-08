@@ -14,8 +14,8 @@ namespace HospiEnCasa.App.Fronted.Pages
         private readonly IRepositorioVisitas repositorioVisita;
         public IEnumerable<Visitas> Visita { get; set; }
 
-        //[BindProperty(SupportsGet =true)]
-        //public string FiltroBusqueda { get; set; }
+        [BindProperty(SupportsGet =true)]
+        public string FiltroBusqueda { get; set; }
 
 
         public visitaModel(IRepositorioVisitas repositorioVisita)
@@ -23,9 +23,10 @@ namespace HospiEnCasa.App.Fronted.Pages
             this.repositorioVisita = repositorioVisita;
         }
 
-        public void OnGet()
+        public void OnGet(string filtroBusqueda)
         {
-            Visita = repositorioVisita.GetAll();
+            FiltroBusqueda=filtroBusqueda;
+            Visita = repositorioVisita.GetVisitaPorFiltro(filtroBusqueda);
         }
     }
 }

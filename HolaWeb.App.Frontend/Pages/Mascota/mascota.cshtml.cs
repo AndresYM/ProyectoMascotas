@@ -15,8 +15,8 @@ namespace HospiEnCasa.App.Fronted.Pages
         private readonly IRepositorioMascotas repositorioMascota;
         public IEnumerable<Mascot> Mascota { get; set; }
 
-        //[BindProperty(SupportsGet =true)]
-        //public string FiltroBusqueda { get; set; }
+        [BindProperty(SupportsGet =true)]
+        public string FiltroBusqueda { get; set; }
 
 
         public mascotaModel(IRepositorioMascotas repositorioMascota)
@@ -24,9 +24,10 @@ namespace HospiEnCasa.App.Fronted.Pages
             this.repositorioMascota = repositorioMascota;
         }
 
-        public void OnGet()
+        public void OnGet(string filtroBusqueda)
         {
-            Mascota = repositorioMascota.GetAll();
+            FiltroBusqueda=filtroBusqueda;
+            Mascota = repositorioMascota.GetMascotaPorFiltro(filtroBusqueda);
         }
     }
 }
