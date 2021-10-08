@@ -17,6 +17,14 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
                 new Propietar{Id=3,Nombre="as212",Apellidos="asdda",NumeroTelefono="12sd212",Identificacion=12133212,Direccion="1235561212"}
             };
         }
+
+        public Propietar Add(Propietar nuevoPropietario)
+        {
+            nuevoPropietario.Id=propietarios.Max(r => r.Id) +1; 
+            propietarios.Add(nuevoPropietario);
+            return nuevoPropietario;
+        }
+
         public IEnumerable<Propietar> GetAll()
         {
             return propietarios;
@@ -41,6 +49,21 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
         public Propietar GetPropietarioPorId(int propietarioID)
         {
             return propietarios.SingleOrDefault(p => p.Id==propietarioID);
+        }
+
+        public Propietar Update(Propietar propietarioActualizado)
+        {
+            var propietario= propietarios.SingleOrDefault(r => r.Id==propietarioActualizado.Id);
+            if (propietario!=null)
+            {
+                propietario.Nombre = propietarioActualizado.Nombre;
+                propietario.Apellidos=propietarioActualizado.Apellidos;
+                propietario.NumeroTelefono=propietarioActualizado.NumeroTelefono;
+                propietario.Identificacion=propietarioActualizado.Identificacion;
+                propietario.Direccion=propietarioActualizado.Direccion;
+    
+            }
+            return propietario;
         }
     }
 }

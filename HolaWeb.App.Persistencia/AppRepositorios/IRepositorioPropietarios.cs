@@ -8,5 +8,7 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
         IEnumerable<Propietar> GetAll();
         IEnumerable<Propietar> GetPropietarioPorFiltro(string filtro);
         Propietar GetPropietarioPorId(int propietarioID);
+        Propietar Update(Propietar propietarioActualizado);
+        Propietar Add(Propietar nuevoPropietario);
     }
 }

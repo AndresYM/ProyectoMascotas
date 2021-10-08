@@ -9,24 +9,23 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HolaWeb.App.Frontend.Pages
 {
-    public class PropiModel : PageModel
+    public class PropiModel1 : PageModel
     {
-        private readonly IRepositorioPropietarios repositorioPropietar;
+        private readonly IRepositorioPropietarios repositorioPropietarios;
         public IEnumerable<Propietar> Propietar { get; set; }
 
-        //[BindProperty(SupportsGet =true)]
-        //public string FiltroBusqueda { get; set; }
+        [BindProperty(SupportsGet =true)]
+        public string FiltroBusqueda { get; set; }
 
 
-        public PropiModel(IRepositorioPropietarios repositorioPropietar)
+        public PropiModel1(IRepositorioPropietarios repositorioPropietarios)
         {
-            this.repositorioPropietar = repositorioPropietar;
+            this.repositorioPropietarios = repositorioPropietarios;
         }
-        public void OnGet()
+        public void OnGet(string filtroBusqueda)
         {
-            //FiltroBusqueda=filtroBusqueda;
-            Propietar = repositorioPropietar.GetAll();
-            //GetSaludosPorFiltro(filtroBusqueda);
+            FiltroBusqueda=filtroBusqueda;
+            Propietar = repositorioPropietarios.GetPropietarioPorFiltro(filtroBusqueda);
         }
     }
 

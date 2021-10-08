@@ -14467,6 +14467,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Propietario\\Edit.cshtml",
+      "TargetPath": "Pages\\Propietario\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Propietario\\Propi.cshtml",
       "TargetPath": "Pages\\Propietario\\Propi.cshtml",
       "FileKind": "mvc"
