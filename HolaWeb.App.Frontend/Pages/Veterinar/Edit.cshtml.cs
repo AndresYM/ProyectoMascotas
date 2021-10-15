@@ -15,9 +15,9 @@ namespace HolaWeb.App.Frontend.Pages
         [BindProperty]
         public Veterinario Veterinario { get; set; }
 
-        public EditModel2(IRepositorioVeterinarios repositorioVeterinarios)
+        public EditModel2()
         {
-            this.repositorioVeterinarios = repositorioVeterinarios;
+            this.repositorioVeterinarios=new RepositorioVeterinariosMemoria(new HolaWeb.App.Persistencia.AppContext());
         }
         public IActionResult OnGet(int? veterinarioId)
         {

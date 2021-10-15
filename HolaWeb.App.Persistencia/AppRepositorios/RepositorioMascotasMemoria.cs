@@ -7,27 +7,35 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
 {
     public class RepositorioMascotasMemoria : IRepositorioMascotas
     {
-        List <Mascot> mascotas;
-        public RepositorioMascotasMemoria()
+        /// <summary>
+        /// Referencia al contexto de Paciente
+        /// </summary>
+        private readonly AppContext _appContext;
+        /// <summary>
+        /// Metodo Constructor Utiiza 
+        /// Inyeccion de dependencias para indicar el contexto a utilizar
+        /// </summary>
+        /// <param name="appContext"></param>//
+        public RepositorioMascotasMemoria(AppContext appContext)
         {
-            mascotas = new List <Mascot> ()
-            {
-                new Mascot{Id=1,Nombre="as13",Edad=2,Raza="12sd1212"},
-                new Mascot{Id=2,Nombre="as2",Edad=3,Raza="121sd212"},
-                new Mascot{Id=3,Nombre="as212",Edad=5,Raza="12sd212"}
-            };
+            _appContext = appContext;
         }
 
         public Mascot Add(Mascot nuevoMascota)
         {
-            nuevoMascota.Id=mascotas.Max(r => r.Id) +1; 
-            mascotas.Add(nuevoMascota);
-            return nuevoMascota;
+            var mascotaAdicionada = _appContext.Mascotas.Add(nuevoMascota);
+            _appContext.SaveChanges();
+            return mascotaAdicionada.Entity;
         }
 
         public IEnumerable<Mascot> GetAll()
         {
-            return mascotas;
+            return GetAll_();
+        }
+
+        public IEnumerable<Mascot> GetAll_()
+        {
+            return _appContext.Mascotas;
         }
 
         public IEnumerable<Mascot> GetMascotaPorFiltro(string filtro)
@@ -48,20 +56,22 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
 
         public Mascot GetMascotaPorId(int mascotaID)
         {
-            return mascotas.SingleOrDefault(p => p.Id==mascotaID);
+            return _appContext.Mascotas.FirstOrDefault(p => p.Id == mascotaID);
         }
 
         public Mascot Update(Mascot mascotaActualizado)
         {
-            var mascota= mascotas.SingleOrDefault(r => r.Id==mascotaActualizado.Id);
-            if (mascota!=null)
+            var mascotaEncontrada = _appContext.Mascotas.FirstOrDefault(p => p.Id == mascotaActualizado.Id);
+            if (mascotaEncontrada!=null)
             {
-                mascota.Nombre = mascotaActualizado.Nombre;
-                mascota.Edad=mascotaActualizado.Edad;
-                mascota.Raza=mascotaActualizado.Raza;
+                mascotaEncontrada.Nombre = mascotaActualizado.Nombre;
+                mascotaEncontrada.Edad=mascotaActualizado.Edad;
+                mascotaEncontrada.Raza=mascotaActualizado.Raza;
+
+                _appContext.SaveChanges();
     
             }
-            return mascota;
+            return mascotaEncontrada;
         }
     }
 }

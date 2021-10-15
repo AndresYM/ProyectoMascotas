@@ -11,9 +11,9 @@ namespace HolaWeb.App.Frontend.Pages
         private readonly IRepositorioPropietarios repositorioPropietarios;
         public Propietar Propietar { get; set; }
 
-        public DetailsModel1(IRepositorioPropietarios repositorioPropietarios)
+        public DetailsModel1()
         {
-            this.repositorioPropietarios = repositorioPropietarios;
+            this.repositorioPropietarios=new RepositorioPropietariosMemoria(new HolaWeb.App.Persistencia.AppContext());
         }
         public IActionResult OnGet(int PropietarId)
         {

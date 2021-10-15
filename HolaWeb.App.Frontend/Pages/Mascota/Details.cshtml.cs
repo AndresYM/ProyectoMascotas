@@ -11,9 +11,9 @@ namespace HolaWeb.App.Frontend.Pages
         private readonly IRepositorioMascotas repositorioMascotas;
         public Mascot Mascota { get; set; }
 
-        public DetailsModel3(IRepositorioMascotas repositorioMascotas)
+        public DetailsModel3()
         {
-            this.repositorioMascotas = repositorioMascotas;
+            this.repositorioMascotas=new RepositorioMascotasMemoria(new HolaWeb.App.Persistencia.AppContext());
         }
         public IActionResult OnGet(int MascotaId)
         {

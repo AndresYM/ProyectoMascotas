@@ -18,9 +18,9 @@ namespace HospiEnCasa.App.Fronted.Pages
         public string FiltroBusqueda { get; set; }
 
 
-        public VeterinarioModel(IRepositorioVeterinarios repositorioVeterinario)
+        public VeterinarioModel()
         {
-            this.repositorioVeterinario = repositorioVeterinario;
+            this.repositorioVeterinario = new RepositorioVeterinariosMemoria(new HolaWeb.App.Persistencia.AppContext());
         }
         public void OnGet(string filtroBusqueda)
         {

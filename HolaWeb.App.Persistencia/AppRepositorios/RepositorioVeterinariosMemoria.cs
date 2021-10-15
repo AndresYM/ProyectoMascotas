@@ -7,27 +7,27 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
 {
     public class RepositorioVeterinariosMemoria : IRepositorioVeterinarios
     {
-        List <Veterinario> veterinarios;
-        public RepositorioVeterinariosMemoria()
+        private readonly AppContext _appContext;
+        public RepositorioVeterinariosMemoria(AppContext appContext)
         {
-            veterinarios = new List <Veterinario> ()
-            {
-                new Veterinario{Id=1,Nombre="as13",Apellidos="asaww",NumeroTelefono="12sd1212",TarjetaProfesional=12121212},
-                new Veterinario{Id=2,Nombre="as2",Apellidos="asass",NumeroTelefono="121sd212",TarjetaProfesional=121444212},
-                new Veterinario{Id=3,Nombre="as212",Apellidos="asdda",NumeroTelefono="12sd212",TarjetaProfesional=12133212}
-            };
+            _appContext = appContext;
         }
 
         public Veterinario Add(Veterinario nuevoVeterinario)
         {
-            nuevoVeterinario.Id=veterinarios.Max(r => r.Id) +1; 
-            veterinarios.Add(nuevoVeterinario);
-            return nuevoVeterinario;
+            var veterinarioAdicionado = _appContext.Veterinarios.Add(nuevoVeterinario);
+            _appContext.SaveChanges();
+            return veterinarioAdicionado.Entity;
         }
 
         public IEnumerable<Veterinario> GetAll()
         {
-            return veterinarios;
+            return GetAll_();
+        }
+
+        public IEnumerable<Veterinario> GetAll_()
+        {
+            return _appContext.Veterinarios;
         }
 
         public IEnumerable<Veterinario> GetVeterinarioPorFiltro(string filtro)
@@ -48,21 +48,21 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
 
         public Veterinario GetVeterinarioPorId(int veterinarioID)
         {
-            return veterinarios.SingleOrDefault(p => p.Id==veterinarioID);
+            return _appContext.Veterinarios.FirstOrDefault(p => p.Id == veterinarioID);
         }
 
         public Veterinario Update(Veterinario veterinarioActualizado)
         {
-            var veterinario= veterinarios.SingleOrDefault(r => r.Id==veterinarioActualizado.Id);
-            if (veterinario!=null)
+            var veterinarioEncontrado = _appContext.Veterinarios.FirstOrDefault(p => p.Id == veterinarioActualizado.Id);
+            if (veterinarioEncontrado!=null)
             {
-                veterinario.Nombre = veterinarioActualizado.Nombre;
-                veterinario.Apellidos=veterinarioActualizado.Apellidos;
-                veterinario.NumeroTelefono=veterinarioActualizado.NumeroTelefono;
-                veterinario.TarjetaProfesional=veterinarioActualizado.TarjetaProfesional;
+                veterinarioEncontrado.Nombre = veterinarioActualizado.Nombre;
+                veterinarioEncontrado.Apellidos=veterinarioActualizado.Apellidos;
+                veterinarioEncontrado.NumeroTelefono=veterinarioActualizado.NumeroTelefono;
+                veterinarioEncontrado.TarjetaProfesional=veterinarioActualizado.TarjetaProfesional;
     
             }
-            return veterinario;
+            return veterinarioEncontrado;
         }
     }
 }

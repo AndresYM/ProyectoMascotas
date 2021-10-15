@@ -15,9 +15,9 @@ namespace HolaWeb.App.Frontend.Pages
         [BindProperty]
         public Visitas Visita { get; set; }
 
-        public EditModel4(IRepositorioVisitas repositorioVisitas)
+        public EditModel4()
         {
-            this.repositorioVisitas = repositorioVisitas;
+            this.repositorioVisitas=new RepositorioVisitasMemoria(new HolaWeb.App.Persistencia.AppContext());
         }
         public IActionResult OnGet(int? visitaId)
         {

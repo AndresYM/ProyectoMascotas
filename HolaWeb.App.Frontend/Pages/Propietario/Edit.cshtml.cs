@@ -15,9 +15,9 @@ namespace HolaWeb.App.Frontend.Pages
         [BindProperty]
         public Propietar Propietario { get; set; }
 
-        public EditModel1(IRepositorioPropietarios repositorioPropietarios)
+        public EditModel1()
         {
-            this.repositorioPropietarios = repositorioPropietarios;
+            this.repositorioPropietarios=new RepositorioPropietariosMemoria(new HolaWeb.App.Persistencia.AppContext());
         }
         public IActionResult OnGet(int? propietarioId)
         {

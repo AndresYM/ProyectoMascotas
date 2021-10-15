@@ -18,9 +18,9 @@ namespace HolaWeb.App.Frontend.Pages
         public string FiltroBusqueda { get; set; }
 
 
-        public PropiModel1(IRepositorioPropietarios repositorioPropietarios)
+        public PropiModel1()
         {
-            this.repositorioPropietarios = repositorioPropietarios;
+            this.repositorioPropietarios = new RepositorioPropietariosMemoria(new HolaWeb.App.Persistencia.AppContext());
         }
         public void OnGet(string filtroBusqueda)
         {

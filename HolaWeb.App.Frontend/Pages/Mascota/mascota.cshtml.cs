@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HolaWeb.App.Dominio;
 using HolaWeb.App.Persistencia.AppRepositorios;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -19,9 +20,9 @@ namespace HospiEnCasa.App.Fronted.Pages
         public string FiltroBusqueda { get; set; }
 
 
-        public mascotaModel(IRepositorioMascotas repositorioMascota)
+        public mascotaModel()
         {
-            this.repositorioMascota = repositorioMascota;
+            this.repositorioMascota = new RepositorioMascotasMemoria(new HolaWeb.App.Persistencia.AppContext());
         }
 
         public void OnGet(string filtroBusqueda)

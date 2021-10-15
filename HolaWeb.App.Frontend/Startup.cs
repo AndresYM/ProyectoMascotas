@@ -23,11 +23,8 @@ namespace HolaWeb.App.Frontend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddSingleton<IRepositorioSaludos, RepositorioSaludosMemoria>();
-            services.AddSingleton<IRepositorioPropietarios, RepositorioPropietariosMemoria>();
-            services.AddSingleton<IRepositorioVeterinarios, RepositorioVeterinariosMemoria>();
-            services.AddSingleton<IRepositorioMascotas, RepositorioMascotasMemoria>();
-            services.AddSingleton<IRepositorioVisitas, RepositorioVisitasMemoria>();
+            services.AddDbContext<HolaWeb.App.Persistencia.AppContext>();//fue añadida por mi manualmente porque no estaba
+            services.AddControllersWithViews();//fue añadida por mi manualmente porque no estaba
         }
            
            

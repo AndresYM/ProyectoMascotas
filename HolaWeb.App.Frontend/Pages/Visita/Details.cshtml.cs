@@ -11,9 +11,9 @@ namespace HolaWeb.App.Frontend.Pages
         private readonly IRepositorioVisitas repositorioVisitas;
         public Visitas Visita { get; set; }
 
-        public DetailsModel4(IRepositorioVisitas repositorioVisitas)
+        public DetailsModel4()
         {
-            this.repositorioVisitas = repositorioVisitas;
+            this.repositorioVisitas=new RepositorioVisitasMemoria(new HolaWeb.App.Persistencia.AppContext());
         }
         public IActionResult OnGet(int VisitaId)
         {

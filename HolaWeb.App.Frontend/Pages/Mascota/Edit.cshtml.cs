@@ -15,9 +15,9 @@ namespace HolaWeb.App.Frontend.Pages
         [BindProperty]
         public Mascot Mascota { get; set; }
 
-        public EditModel3(IRepositorioMascotas repositorioMascotas)
+        public EditModel3()
         {
-            this.repositorioMascotas = repositorioMascotas;
+            this.repositorioMascotas=new RepositorioMascotasMemoria(new HolaWeb.App.Persistencia.AppContext());
         }
         public IActionResult OnGet(int? mascotaId)
         {

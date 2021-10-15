@@ -1,0 +1,130 @@
+{
+  "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\HolaWeb.App.Frontend.csproj",
+  "Configuration": {
+    "ConfigurationName": "MVC-3.0",
+    "LanguageVersion": "3.0",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-3.0"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 1000
+  },
+  "RootNamespace": "HolaWeb.App.Frontend",
+  "Documents": [
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Shared\\_Layout.cshtml",
+      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Saludos\\Edit.cshtml",
+      "TargetPath": "Pages\\Saludos\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Mascota\\Details.cshtml",
+      "TargetPath": "Pages\\Mascota\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Index.cshtml",
+      "TargetPath": "Pages\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Veterinar\\Edit.cshtml",
+      "TargetPath": "Pages\\Veterinar\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Propietario\\Details.cshtml",
+      "TargetPath": "Pages\\Propietario\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Veterinar\\veterinario.cshtml",
+      "TargetPath": "Pages\\Veterinar\\veterinario.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Veterinar\\Details.cshtml",
+      "TargetPath": "Pages\\Veterinar\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Error.cshtml",
+      "TargetPath": "Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Visita\\Details.cshtml",
+      "TargetPath": "Pages\\Visita\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Saludos\\List.cshtml",
+      "TargetPath": "Pages\\Saludos\\List.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Mascota\\mascota.cshtml",
+      "TargetPath": "Pages\\Mascota\\mascota.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Saludos\\Details.cshtml",
+      "TargetPath": "Pages\\Saludos\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Visita\\Edit.cshtml",
+      "TargetPath": "Pages\\Visita\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Propietario\\Edit.cshtml",
+      "TargetPath": "Pages\\Propietario\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Propietario\\Propi.cshtml",
+      "TargetPath": "Pages\\Propietario\\Propi.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Privacy.cshtml",
+      "TargetPath": "Pages\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Visita\\visita.cshtml",
+      "TargetPath": "Pages\\Visita\\visita.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Mascota\\Edit.cshtml",
+      "TargetPath": "Pages\\Mascota\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\HolaWeb\\HolaWeb.App\\HolaWeb.App.Frontend\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    }
+  ],
+  "SerializationFormat": "0.2"
+}

@@ -18,9 +18,9 @@ namespace HospiEnCasa.App.Fronted.Pages
         public string FiltroBusqueda { get; set; }
 
 
-        public visitaModel(IRepositorioVisitas repositorioVisita)
+        public visitaModel()
         {
-            this.repositorioVisita = repositorioVisita;
+            this.repositorioVisita = new RepositorioVisitasMemoria(new HolaWeb.App.Persistencia.AppContext());
         }
 
         public void OnGet(string filtroBusqueda)

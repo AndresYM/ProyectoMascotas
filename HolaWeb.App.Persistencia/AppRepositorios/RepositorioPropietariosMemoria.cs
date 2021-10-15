@@ -7,28 +7,29 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
 {
     public class RepositorioPropietariosMemoria : IRepositorioPropietarios
     {
-        List <Propietar> propietarios;
-        public RepositorioPropietariosMemoria()
+        private readonly AppContext _appContext;
+        public RepositorioPropietariosMemoria(AppContext appContext)
         {
-            propietarios = new List <Propietar> ()
-            {
-                new Propietar{Id=1,Nombre="as13",Apellidos="asaww",NumeroTelefono="12sd1212",Identificacion=12121212,Direccion="121212"},
-                new Propietar{Id=2,Nombre="as2",Apellidos="asass",NumeroTelefono="121sd212",Identificacion=121444212,Direccion="122321212"},
-                new Propietar{Id=3,Nombre="as212",Apellidos="asdda",NumeroTelefono="12sd212",Identificacion=12133212,Direccion="1235561212"}
-            };
+           _appContext = appContext;
         }
 
         public Propietar Add(Propietar nuevoPropietario)
         {
-            nuevoPropietario.Id=propietarios.Max(r => r.Id) +1; 
-            propietarios.Add(nuevoPropietario);
-            return nuevoPropietario;
+           var propietarioAdicionado = _appContext.Propietarios.Add(nuevoPropietario);
+            _appContext.SaveChanges();
+            return propietarioAdicionado.Entity;
         }
 
         public IEnumerable<Propietar> GetAll()
         {
-            return propietarios;
+            return GetAll_();
         }
+
+         public IEnumerable<Propietar> GetAll_()
+        {
+            return _appContext.Propietarios;
+        }
+
 
         public IEnumerable<Propietar> GetPropietarioPorFiltro(string filtro)
         {
@@ -48,22 +49,21 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
 
         public Propietar GetPropietarioPorId(int propietarioID)
         {
-            return propietarios.SingleOrDefault(p => p.Id==propietarioID);
+            return _appContext.Propietarios.FirstOrDefault(p => p.Id == propietarioID);
         }
 
         public Propietar Update(Propietar propietarioActualizado)
         {
-            var propietario= propietarios.SingleOrDefault(r => r.Id==propietarioActualizado.Id);
-            if (propietario!=null)
+            var propietarioEncontrado = _appContext.Propietarios.FirstOrDefault(p => p.Id == propietarioActualizado.Id);
+            if (propietarioEncontrado!=null)
             {
-                propietario.Nombre = propietarioActualizado.Nombre;
-                propietario.Apellidos=propietarioActualizado.Apellidos;
-                propietario.NumeroTelefono=propietarioActualizado.NumeroTelefono;
-                propietario.Identificacion=propietarioActualizado.Identificacion;
-                propietario.Direccion=propietarioActualizado.Direccion;
-    
+                propietarioEncontrado.Nombre = propietarioActualizado.Nombre;
+                propietarioEncontrado.Apellidos=propietarioActualizado.Apellidos;
+                propietarioEncontrado.NumeroTelefono=propietarioActualizado.NumeroTelefono;
+                propietarioEncontrado.Identificacion=propietarioActualizado.Identificacion;
+                propietarioEncontrado.Direccion=propietarioActualizado.Direccion;
             }
-            return propietario;
+            return propietarioEncontrado;
         }
     }
 }

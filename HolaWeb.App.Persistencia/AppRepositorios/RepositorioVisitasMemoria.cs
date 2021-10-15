@@ -7,28 +7,29 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
 {
     public class RepositorioVisitasMemoria : IRepositorioVisitas
     {
-        List <Visitas> visitas;
-        public RepositorioVisitasMemoria()
+        private readonly AppContext _appContext;
+        public RepositorioVisitasMemoria(AppContext appContext)
         {
-            visitas = new List <Visitas> ()
-            {
-                new Visitas{Id=1,IdMascota=1,IdVeterinario=1,Temperatura=27,peso=13,FrecuenciaRes=99,FrecuenciaCar=120,EstadoAnimo="Bien",Fecha="121212",Recomendaciones="121212"},
-                new Visitas{Id=2,IdMascota=2,IdVeterinario=3,Temperatura=28,peso=15,FrecuenciaRes=100,FrecuenciaCar=130,EstadoAnimo="Mal",Fecha="121212",Recomendaciones="121212"},
-                new Visitas{Id=3,IdMascota=2,IdVeterinario=2,Temperatura=28,peso=8,FrecuenciaRes=89,FrecuenciaCar=123,EstadoAnimo="Triste",Fecha="121212",Recomendaciones="121212"}
-            };
+            _appContext = appContext;
         }
 
-        public Visitas Add(Visitas nuevoVisita)
+        public Visitas Add(Visitas nuevaVisita)
         {
-            nuevoVisita.Id=visitas.Max(r => r.Id) +1; 
-            visitas.Add(nuevoVisita);
-            return nuevoVisita;
+            var visitaAdicionada = _appContext.Visitas.Add(nuevaVisita);
+            _appContext.SaveChanges();
+            return visitaAdicionada.Entity;
         }
 
         public IEnumerable<Visitas> GetAll()
         {
-            return visitas;
+            return GetAll_();
         }
+
+        public IEnumerable<Visitas> GetAll_()
+        {
+            return _appContext.Visitas;
+        }
+
 
         public IEnumerable<Visitas> GetVisitaPorFiltro(string filtro)
         {
@@ -48,26 +49,26 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
 
         public Visitas GetVisitaPorId(int visitaID)
         {
-            return visitas.SingleOrDefault(p => p.Id==visitaID);
+            return _appContext.Visitas.FirstOrDefault(p => p.Id == visitaID);
         }
 
         public Visitas Update(Visitas visitaActualizado)
         {
-            var visita= visitas.SingleOrDefault(r => r.Id==visitaActualizado.Id);
-            if (visita!=null)
+            var visitaEncontrada = _appContext.Visitas.FirstOrDefault(p => p.Id == visitaActualizado.Id);
+            if (visitaEncontrada!=null)
             {
-                visita.IdMascota = visitaActualizado.IdMascota;
-                visita.IdVeterinario=visitaActualizado.IdVeterinario;
-                visita.Temperatura=visitaActualizado.Temperatura;
-                visita.peso=visitaActualizado.peso;
-                visita.FrecuenciaRes=visitaActualizado.FrecuenciaRes;
-                visita.FrecuenciaCar=visitaActualizado.FrecuenciaCar;
-                visita.EstadoAnimo=visitaActualizado.EstadoAnimo;
-                visita.Fecha=visitaActualizado.Fecha;
-                visita.Recomendaciones=visitaActualizado.Recomendaciones;
+                visitaEncontrada.IdMascota = visitaActualizado.IdMascota;
+                visitaEncontrada.IdVeterinario=visitaActualizado.IdVeterinario;
+                visitaEncontrada.Temperatura=visitaActualizado.Temperatura;
+                visitaEncontrada.peso=visitaActualizado.peso;
+                visitaEncontrada.FrecuenciaRes=visitaActualizado.FrecuenciaRes;
+                visitaEncontrada.FrecuenciaCar=visitaActualizado.FrecuenciaCar;
+                visitaEncontrada.EstadoAnimo=visitaActualizado.EstadoAnimo;
+                visitaEncontrada.Fecha=visitaActualizado.Fecha;
+                visitaEncontrada.Recomendaciones=visitaActualizado.Recomendaciones;
     
             }
-            return visita;
+            return visitaEncontrada;
         }
     }
 }
