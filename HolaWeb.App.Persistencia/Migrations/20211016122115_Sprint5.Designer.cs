@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HolaWeb.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20211016034818_Sprint5")]
+    [Migration("20211016122115_Sprint5")]
     partial class Sprint5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,6 +30,9 @@ namespace HolaWeb.App.Persistencia.Migrations
                     b.Property<int>("Edad")
                         .HasColumnType("int");
 
+                    b.Property<int>("IdPropietario")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -41,6 +44,8 @@ namespace HolaWeb.App.Persistencia.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdPropietario");
 
                     b.ToTable("Mascotas");
                 });
@@ -150,7 +155,41 @@ namespace HolaWeb.App.Persistencia.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdMascota");
+
+                    b.HasIndex("IdVeterinario");
+
                     b.ToTable("Visitas");
+                });
+
+            modelBuilder.Entity("HolaWeb.App.Dominio.Mascot", b =>
+                {
+                    b.HasOne("HolaWeb.App.Dominio.Propietar", "Propietario")
+                        .WithMany()
+                        .HasForeignKey("IdPropietario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Propietario");
+                });
+
+            modelBuilder.Entity("HolaWeb.App.Dominio.Visitas", b =>
+                {
+                    b.HasOne("HolaWeb.App.Dominio.Mascot", "Mascota")
+                        .WithMany()
+                        .HasForeignKey("IdMascota")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HolaWeb.App.Dominio.Veterinario", "Veterinario")
+                        .WithMany()
+                        .HasForeignKey("IdVeterinario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Mascota");
+
+                    b.Navigation("Veterinario");
                 });
 #pragma warning restore 612, 618
         }
