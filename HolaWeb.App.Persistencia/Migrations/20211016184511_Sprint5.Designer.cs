@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HolaWeb.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20211016122115_Sprint5")]
+    [Migration("20211016184511_Sprint5")]
     partial class Sprint5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

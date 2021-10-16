@@ -66,6 +66,8 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
                 visitaEncontrada.EstadoAnimo=visitaActualizado.EstadoAnimo;
                 visitaEncontrada.Fecha=visitaActualizado.Fecha;
                 visitaEncontrada.Recomendaciones=visitaActualizado.Recomendaciones;
+                
+                _appContext.SaveChanges();
     
             }
             return visitaEncontrada;

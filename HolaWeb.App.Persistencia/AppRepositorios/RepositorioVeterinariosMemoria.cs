@@ -60,6 +60,8 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
                 veterinarioEncontrado.Apellidos=veterinarioActualizado.Apellidos;
                 veterinarioEncontrado.NumeroTelefono=veterinarioActualizado.NumeroTelefono;
                 veterinarioEncontrado.TarjetaProfesional=veterinarioActualizado.TarjetaProfesional;
+
+                _appContext.SaveChanges();
     
             }
             return veterinarioEncontrado;

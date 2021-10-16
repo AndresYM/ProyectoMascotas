@@ -62,6 +62,8 @@ namespace HolaWeb.App.Persistencia.AppRepositorios
                 propietarioEncontrado.NumeroTelefono=propietarioActualizado.NumeroTelefono;
                 propietarioEncontrado.Identificacion=propietarioActualizado.Identificacion;
                 propietarioEncontrado.Direccion=propietarioActualizado.Direccion;
+
+                _appContext.SaveChanges();
             }
             return propietarioEncontrado;
         }
