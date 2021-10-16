@@ -12,19 +12,30 @@
         </p>
 </form>
 <table class="table">
+    <thead>
+        <tr>
+            <td style="text-align: center"><strong>Id</strong></td>
+            <td style="text-align: center"><strong>Nombre</strong></td>
+            <td style="text-align: center"><strong>Apellidos</strong></td>
+            <td style="text-align: center"><strong>Numero de Telefono</strong></td>
+            <td style="text-align: center"><strong>Tarjeta Profesional</strong></td>
+            <td style="text-align: center"><strong>Información</strong></td>
+            <td style="text-align: center"><strong>Editar</strong></td>
+        </tr>
+    </thead>
     @foreach (var veterinario in Model.Veterinario)
     {
         <tr>
-            <td>@veterinario.Id</td>
-            <td>@veterinario.Nombre</td>
-            <td>@veterinario.Apellidos</td>
-            <td>@veterinario.NumeroTelefono</td>
-            <td>@veterinario.TarjetaProfesional</td>
-            <td>
+            <td style="text-align: center">@veterinario.Id</td>
+            <td style="text-align: center">@veterinario.Nombre</td>
+            <td style="text-align: center">@veterinario.Apellidos</td>
+            <td style="text-align: center">@veterinario.NumeroTelefono</td>
+            <td style="text-align: center">@veterinario.TarjetaProfesional</td>
+            <td style="text-align: center">
                 <a class="btn btn-primary table-btn" asp-page="./Details" asp-route-VeterinarioId="@veterinario.Id">
                     <i class="fas fa-info-circle fa-lg"></i Detalle veterinario</a>
             </td>
-            <td>
+            <td style="text-align: center">
                 <a class="btn btn-primary table-btn" asp-page="./Edit" asp-route-VeterinarioId="@veterinario.Id">
                     <i class="fas fa-address-book fa-lg" aria-hidden="true"></i>
                 </a>

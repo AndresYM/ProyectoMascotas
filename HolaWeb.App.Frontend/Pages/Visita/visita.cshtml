@@ -12,24 +12,40 @@
         </p>
 </form>
 <table class="table">
+    <thead>
+        <tr>
+            <td style="text-align: center"><strong>Id</strong></td>
+            <td style="text-align: center"><strong>Id Mascota</strong></td>
+            <td style="text-align: center"><strong>Id Veterinario</strong></td>
+            <td style="text-align: center"><strong>Temperatura</strong></td>
+            <td style="text-align: center"><strong>Peso</strong></td>
+            <td style="text-align: center"><strong>Frecuencia respiratoria</strong></td>
+            <td style="text-align: center"><strong>Frecuencia cardiaca</strong></td>
+            <td style="text-align: center"><strong>Estado de animo</strong></td>
+            <td style="text-align: center"><strong>Fecha</strong></td>
+            <td style="text-align: center"><strong>Recomendaciones</strong></td>
+            <td style="text-align: center"><strong>Información</strong></td>
+            <td style="text-align: center"><strong>Editar</strong></td>
+        </tr>
+    </thead>
     @foreach (var visita in Model.Visita)
     {
         <tr>
-            <td>@visita.Id</td>
-            <td>@visita.IdMascota</td>
-            <td>@visita.IdVeterinario</td>
-            <td>@visita.Temperatura</td>
-            <td>@visita.peso</td>
-            <td>@visita.FrecuenciaRes</td>
-            <td>@visita.FrecuenciaCar</td>
-            <td>@visita.EstadoAnimo</td>
-            <td>@visita.Fecha</td>
-            <td>@visita.Recomendaciones</td>
-            <td>
+            <td style="text-align: center">@visita.Id</td>
+            <td style="text-align: center">@visita.IdMascota</td>
+            <td style="text-align: center">@visita.IdVeterinario</td>
+            <td style="text-align: center">@visita.Temperatura</td>
+            <td style="text-align: center">@visita.peso</td>
+            <td style="text-align: center">@visita.FrecuenciaRes</td>
+            <td style="text-align: center">@visita.FrecuenciaCar</td>
+            <td style="text-align: center">@visita.EstadoAnimo</td>
+            <td style="text-align: center">@visita.Fecha</td>
+            <td style="text-align: center">@visita.Recomendaciones</td>
+            <td style="text-align: center">
                 <a class="btn btn-primary table-btn" asp-page="./Details" asp-route-VisitaId="@visita.Id">
                     <i class="fas fa-info-circle fa-lg"></i Detalle Visita</a>
             </td>
-            <td>
+            <td style="text-align: center">
                 <a class="btn btn-primary table-btn" asp-page="./Edit" asp-route-VisitaId="@visita.Id">
                     <i class="fas fa-address-book fa-lg" aria-hidden="true"></i>
                 </a>
